@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Base2</string>
+    <string name="app_name">Base</string>
     <string name="hello_world">Hello world!</string>
+	
+	<string-array name="Language">
+		<item>Inglês (US)</item>
+		<item>Francês (França)</item>
+		<item>Espanhol (Espanha)</item>
+		<item>Português (Brasil)</item>
+	</string-array>
+
+	<string-array name="languageAlias">
+		<item>"en-US"</item>
+		<item>"fr-FR"</item>
+		<item>"es-ES"</item>
+		<item>"pt-BR"</item>
+	</string-array>
 
 </resources>

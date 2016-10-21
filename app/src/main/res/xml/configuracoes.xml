@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<PreferenceCategory
+		android:title="Salário">
+
+		<EditTextPreference
+			android:key="valor_salario"
+			android:title="Salário (R$)"
+			android:summary="Valor do seu salário" />
+
+		<EditTextPreference
+			android:key="valor_hora_extra"
+			android:title="Hora Extra (R$)"
+			android:summary="Valor das horas extras" />
+
+		<EditTextPreference
+			android:key="porcentagem_inss"
+			android:title="INSS (%)"
+			android:summary="Porcentagem do INSS" />
+
+	</PreferenceCategory>
+	
+	<PreferenceCategory
+		android:title="Outras configurações" >
+		
+		<EditTextPreference
+			android:key="edit_preference_1"
+			android:title="Edit Text"
+			android:summary="Clique aqui para abrir o Edit Text" />
+		
+		<CheckBoxPreference
+			android:key="checkbox_preference_2"
+			android:title="CheckBox"
+			android:defaultValue="true"
+			android:summary="Marque ou desmarque este CheckBox" />
+		
+		<ListPreference 
+			android:key="language_preference"
+			android:title="Linguagem"
+			android:summary="Selecione uma linguagem na lista"
+			android:entries="@array/Language"
+			android:entryValues="@array/languageAlias"/>
+		
+		<Preference
+			android:key="preference_3"
+			android:title="Preference"
+			android:summary="Clique aqui para alguma ação" />
+		
+	</PreferenceCategory>
+	
+	<!-- <Preference
+		android:key="sobre"
+		android:title="Sobre">
+		<intent
+			android:action="android.intent.action.MAIN"
+			android:targetPackage="com.craniodatecnologia.base2"
+			android:targetClass="com.craniodatecnologia.base2.Sobre" />
+	</Preference> -->
+
+</PreferenceScreen>
