@@ -1,23 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:orientation="vertical"
-	android:padding="16dp"
-	android:gravity="center">
+	android:layout_width="match_parent"
+	android:fillViewport="true">
 
-	<TextView
-		android:layout_height="wrap_content"
-		android:textAppearance="?android:attr/textAppearanceLarge"
+	<LinearLayout
 		android:layout_width="match_parent"
-		android:text="Sobre"/>
-	
-	<TextView
-		android:layout_height="wrap_content"
-		android:textAppearance="?android:attr/textAppearanceLarge"
-		android:layout_width="match_parent"
-		android:text="Desenvolvido por Brunno Oliveira"/>
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:gravity="center_horizontal">
 
-</LinearLayout>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:gravity="top|center">
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center"
+				android:layout_marginTop="20dp">
+
+				<ImageView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:src="@drawable/ic_launcher"/>
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:textAppearance="?android:attr/textAppearanceLarge"
+					android:layout_width="wrap_content"
+					android:text="Base"
+					android:textStyle="bold"
+					android:paddingLeft="10dp"/>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="wrap_content"
+			android:text="Desenvolvido por Brunno Oliveira"
+			android:textStyle="bold"
+			android:gravity="center_horizontal"/>
+
+		<ImageView
+			android:layout_width="200dp"
+			android:layout_height="200dp"
+			android:src="@drawable/brunno"
+			android:layout_marginTop="50dp"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="wrap_content"
+			android:text="www.craniodatecnologia.esy.es"
+			android:autoLink="web"
+			android:layout_marginTop="50dp"
+			android:textColorLink="#080DEA"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="wrap_content"
+			android:text="© Crânio da Tecnologia 2016"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="Conheça o app oficial do Crânio"
+			android:layout_gravity="bottom|center_horizontal"
+			android:layout_marginTop="25dp"
+			android:id="@+id/btnAppCranio"
+			android:layout_margin="10dp"/>
+
+	</LinearLayout>
+
+</ScrollView>
 
