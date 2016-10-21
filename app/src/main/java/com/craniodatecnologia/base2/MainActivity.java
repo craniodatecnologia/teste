@@ -16,7 +16,7 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-		
+
     }
 
 	@Override
@@ -38,15 +38,15 @@ public class MainActivity extends Activity
 				startActivity(irParaConfiguracoes);
 				return true;
 
-				case R.id.sair:
+			case R.id.sair:
 				finish();
 				return true;
-				
+
 				/*
-				case R.id.sair:
-				finish();
-				return true;
-				*/
+				 case R.id.sair:
+				 finish();
+				 return true;
+				 */
 
 			default:
 				return super.onOptionsItemSelected(item);
