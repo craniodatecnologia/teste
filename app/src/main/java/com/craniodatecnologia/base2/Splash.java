@@ -21,14 +21,14 @@ public class Splash extends Activity {
 		logoAbertura.startAnimation(animation0);
 		
 		TextView aguarde = (TextView)findViewById(R.id.splashTextViewAguarde);
-		Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), 
+		Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), 
 		R.anim.fade);
-		aguarde.startAnimation(animation);
+		aguarde.startAnimation(animation1);
 		
 		TextView textView1 = (TextView)findViewById(R.id.splashTextView1);
-		Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), 
+		Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(), 
 		R.anim.piscar);
-		textView1.startAnimation(animation);
+		textView1.startAnimation(animation2);
 		
 		new Handler().postDelayed(new Runnable() {
 				/*
