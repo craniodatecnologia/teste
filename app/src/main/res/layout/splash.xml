@@ -17,6 +17,7 @@
 		android:layout_height="wrap_content"
 		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:layout_width="wrap_content"
+		android:id="@+id/splashTextView1"
 		android:text="Isto é uma Splash Screen, ou seja, uma tela de abertura."
 		android:gravity="center"/>
 
