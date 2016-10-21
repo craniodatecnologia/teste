@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
 	xmlns:android="http://schemas.android.com/apk/res/android">
-
-	<PreferenceCategory
-		android:title="Salário">
-
-		<EditTextPreference
-			android:key="valor_salario"
-			android:title="Salário (R$)"
-			android:summary="Valor do seu salário" />
-
-		<EditTextPreference
-			android:key="valor_hora_extra"
-			android:title="Hora Extra (R$)"
-			android:summary="Valor das horas extras" />
-
-		<EditTextPreference
-			android:key="porcentagem_inss"
-			android:title="INSS (%)"
-			android:summary="Porcentagem do INSS" />
-
-	</PreferenceCategory>
 	
 	<PreferenceCategory
 		android:title="Outras configurações" >
