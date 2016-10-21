@@ -50,13 +50,13 @@
 		
 	</PreferenceCategory>
 	
-	<!-- <Preference
+	<Preference
 		android:key="sobre"
 		android:title="Sobre">
 		<intent
 			android:action="android.intent.action.MAIN"
 			android:targetPackage="com.craniodatecnologia.base2"
 			android:targetClass="com.craniodatecnologia.base2.Sobre" />
-	</Preference> -->
+	</Preference>
 
 </PreferenceScreen>
