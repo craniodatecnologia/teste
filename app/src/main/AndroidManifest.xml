@@ -27,7 +27,8 @@
 		
 		<activity
 			android:name=".Sobre"
-			android:label="Sobre" />
+			android:label="Sobre"
+			android:theme="@android:style/Theme.Dialog" />
 		
     </application>
 
