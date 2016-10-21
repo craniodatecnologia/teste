@@ -27,7 +27,7 @@ public class Splash extends Activity {
 		
 		TextView textView1 = (TextView)findViewById(R.id.splashTextView1);
 		Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(), 
-		R.anim.piscar);
+		R.anim.fade);
 		textView1.startAnimation(animation2);
 		
 		new Handler().postDelayed(new Runnable() {
