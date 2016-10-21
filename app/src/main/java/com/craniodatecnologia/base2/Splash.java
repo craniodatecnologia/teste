@@ -15,17 +15,20 @@ public class Splash extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.splash);
 		
-		/*
 		ImageView logoAbertura = (ImageView) findViewById(R.id.splashImagem);
 		Animation animation0 = AnimationUtils.loadAnimation(Splash.this, 
 		R.anim.fade);
 		logoAbertura.startAnimation(animation0);
-		*/
 		
 		TextView aguarde = (TextView)findViewById(R.id.splashTextViewAguarde);
 		Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), 
-		R.anim.piscar);
+		R.anim.fade);
 		aguarde.startAnimation(animation);
+		
+		TextView textView1 = (TextView)findViewById(R.id.splashTextView1);
+		Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), 
+		R.anim.piscar);
+		textView1.startAnimation(animation);
 		
 		new Handler().postDelayed(new Runnable() {
 				/*
