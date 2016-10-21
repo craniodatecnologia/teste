@@ -5,4 +5,10 @@
 		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 		<item name="colorAccent">@color/colorAccent</item>
 	</style>
+	
+	<style name="ThemeDialog" parent="@android:style/Theme.Dialog">
+    <item name="@android:windowBackground">@color/whitegrey</item>
+    <item name="@android:textColor">@color/colorPrimary</item>        
+</style>
+	
 </resources>
