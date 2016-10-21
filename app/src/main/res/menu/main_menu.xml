@@ -4,4 +4,8 @@
         android:id="@+id/configuracoes"
         android:title="Configurações"/>
     
+    <item
+          android:id="@+id/sair"
+          android:title="Sair" />
+    
 </menu>
