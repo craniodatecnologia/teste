@@ -23,7 +23,7 @@ public class MainActivity extends Activity
 		
 		// List<ListMain> listMain = 
 		
-		recyclerView.setAdapter(new MainAdapter(listMain));
+		recyclerView.setAdapter(new MainAdapter(listMain, this));
 
     }
 
