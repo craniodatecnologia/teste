@@ -7,9 +7,11 @@ public class MainAdapter extends RecyclerView.Adapter
 {
 	
 	private List<ListMain> listMain;
+	private Context context;
 	
 	public MainAdapter(List<ListMain> listMain) {
 		this.listMain = listMain;
+		this.context = context;
 	}
 
 	@Override
