@@ -19,12 +19,6 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 		
-		RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler);
-		
-		// List<ListMain> listMain = 
-		
-		recyclerView.setAdapter(new MainAdapter(listMain, this));
-
     }
 
 	@Override
