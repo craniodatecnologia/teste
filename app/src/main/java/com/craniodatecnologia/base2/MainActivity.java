@@ -13,11 +13,17 @@ import java.util.*;
 
 public class MainActivity extends Activity 
 {
+	
+	RecyclerView recyclerView;
+	
+	
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+		
+		recyclerView = (RecyclerView) findViewById(R.id.listaMain);
 		
     }
 
