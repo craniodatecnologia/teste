@@ -20,8 +20,14 @@ android {
 }
 
 dependencies {
+<<<<<<< HEAD
 	compile 'com.android.support:recyclerview-v7:+'
 	compile 'com.android.support:design:+'
+=======
+	
+    	compile 'com.android.support:design:+'
+    	compile 'com.android.support:recyclerview-v7:+'
+>>>>>>> branch 'master' of https://github.com/craniodatecnologia/teste.git
 	compile 'com.android.support:appcompat-v7:+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
