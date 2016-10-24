@@ -5,40 +5,17 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical"
 	android:gravity="center"
-	android:weightSum="2">
+	android:padding="16dp">
 
-	<LinearLayout
-		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:orientation="vertical"
-		android:layout_weight="1.0"
-		android:gravity="bottom|center">
-
-		<TextView
-			android:text="Esta é a tela inicial"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceLarge"
-			android:textColor="@color/colorPrimary"/>
-
-	</LinearLayout>
-
-	<LinearLayout
-		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:orientation="vertical"
-		android:gravity="bottom|right"
-		android:layout_weight="1.0">
-
-		<Button
-			android:layout_height="wrap_content"
-			android:layout_width="wrap_content"
-			android:text="Começar"
-			android:textColor="@color/colorPrimary"
-			android:layout_margin="10dp"
-			android:id="@+id/btStart"/>
-
-	</LinearLayout>
+	<ImageView
+		android:layout_height="200dp"
+		android:layout_width="wrap_content"
+		android:src="@drawable/brunno"
+		android:id="@+id/mainImageLogo"/>
+	
+	<android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
-
