@@ -24,7 +24,11 @@ public class MainAdapter extends RecyclerView.Adapter
 	@Override
 	public void onBindViewHolder(RecyclerView.ViewHolder p1, int p2)
 	{
-		// TODO: Implement this method
+		MainHolder holder = (MainHolder) viewHolder;
+   
+    ListMain listMain  = listMain.get(position) ;
+ 
+    holder.nome.setText(livro.getNome());
 	}
 
 	@Override
