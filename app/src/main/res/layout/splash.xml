@@ -18,6 +18,7 @@
 		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:layout_width="wrap_content"
 		android:id="@+id/splashTextView1"
+		android:textColor="@color/colorPrimary"
 		android:text="Isto é uma Splash Screen, ou seja, uma tela de abertura."
 		android:gravity="center"/>
 
@@ -26,6 +27,7 @@
 		android:textAppearance="?android:attr/textAppearanceSmall"
 		android:layout_width="wrap_content"
 		android:text="Aguarde..."
+		android:textColor="@color/colorPrimary"
 		android:layout_marginTop="50dp"
 		android:id="@+id/splashTextViewAguarde"/>
 
