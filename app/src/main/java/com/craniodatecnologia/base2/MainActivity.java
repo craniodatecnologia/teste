@@ -8,6 +8,8 @@ import android.graphics.drawable.*;
 import android.graphics.*;
 import android.text.*;
 import android.support.v7.app.*;
+import android.support.v7.widget.*;
+import java.util.*;
 
 public class MainActivity extends Activity 
 {
@@ -16,6 +18,12 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+		
+		RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler);
+		
+		// List<ListMain> listMain = 
+		
+		recyclerView.setAdapter(new MainAdapter(listMain));
 
     }
 
