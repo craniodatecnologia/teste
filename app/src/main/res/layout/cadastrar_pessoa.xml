@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:padding="5dp">
+
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_height="match_parent"
+		android:layout_width="match_parent">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="Código"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="number"
+			android:layout_width="match_parent"
+			android:hint="Código"
+			android:enabled="false"
+			android:id="@+id/codigoCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="Nome/Razão Social"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="textCapCharacters"
+			android:layout_width="match_parent"
+			android:id="@+id/nomeCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="Nome Fantasia"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="textCapCharacters"
+			android:layout_width="match_parent"
+			android:id="@+id/nomeFantasiaCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="Telefone"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="phone"
+			android:layout_width="match_parent"
+			android:id="@+id/telefoneCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="Telefone Comercial"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="phone"
+			android:layout_width="match_parent"
+			android:id="@+id/telefoneComercialCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="Celular"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="phone"
+			android:layout_width="match_parent"
+			android:id="@+id/celularCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="E-mail"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="textEmailAddress"
+			android:layout_width="match_parent"
+			android:id="@+id/emailCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="CPF/CNPJ"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="number"
+			android:layout_width="match_parent"
+			android:id="@+id/cpfCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="RG/Inscrição Estadual"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="number"
+			android:layout_width="match_parent"
+			android:id="@+id/rgCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="Endereço"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="textCapCharacters"
+			android:layout_width="match_parent"
+			android:id="@+id/enderecoCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="Bairro"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="textCapCharacters"
+			android:layout_width="match_parent"
+			android:id="@+id/bairroCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="CEP"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="number"
+			android:layout_width="match_parent"
+			android:id="@+id/cepCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="Código do IBGE"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="number"
+			android:layout_width="match_parent"
+			android:id="@+id/ibgeCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="Cidade"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="textCapCharacters"
+			android:layout_width="match_parent"
+			android:id="@+id/cidadeCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="UF"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="textCapCharacters"
+			android:layout_width="match_parent"
+			android:id="@+id/ufCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="Observações"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="textCapSentences"
+			android:layout_width="match_parent"
+			android:id="@+id/observacoesCliente"/>
+
+	</LinearLayout>
+
+</ScrollView>
+

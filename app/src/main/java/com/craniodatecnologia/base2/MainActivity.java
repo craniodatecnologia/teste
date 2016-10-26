@@ -7,24 +7,54 @@ import android.content.*;
 import android.graphics.drawable.*;
 import android.graphics.*;
 import android.text.*;
-import android.support.v7.app.*;
-import android.support.v7.widget.*;
 import java.util.*;
+import android.widget.*;
+import android.widget.AdapterView.*;
 
-public class MainActivity extends Activity 
+public class MainActivity extends Activity
 {
-	
-	RecyclerView recyclerView;
-	
-	
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-		
-		recyclerView = (RecyclerView) findViewById(R.id.listaMain);
-		
+
+		ArrayList<ListaMain> image_details = getSearchResults();
+
+        final ListView lv1 = (ListView) findViewById(R.id.listaMain);
+        lv1.setAdapter(new ListaMainAdapter(this, image_details));
+
+        lv1.setOnItemClickListener(new OnItemClickListener() {
+				@Override
+				public void onItemClick(AdapterView<?> a, View v, int position, long id)
+				{ 
+					Object o = lv1.getItemAtPosition(position);
+					final ListaMain obj_itemDetails = (ListaMain)o;
+
+					{
+						switch (position)
+						{
+							case 0:
+								//Intent intent = new Intent(MainActivity.this, NovoPedido.class);
+								//startActivity(intent);
+								break;
+
+							case 1:
+								Intent intent = new Intent(MainActivity.this, Clientes.class);
+								startActivity(intent);
+								break;
+
+							case 2:
+								//Intent intent = new Intent(MainActivity.this, MinhasVendas.class);
+								//startActivity(intent);
+								break;
+							default:
+						}
+					}
+				}  
+
+			});
     }
 
 	@Override
@@ -59,6 +89,32 @@ public class MainActivity extends Activity
 			default:
 				return super.onOptionsItemSelected(item);
 		}
+
+	}
+
+	private ArrayList<ListaMain> getSearchResults()
+	{
+    	ArrayList<ListaMain> results = new ArrayList<ListaMain>();
+
+    	ListaMain item_details = new ListaMain();
+    	item_details.setItem("Novo pedido");
+    	item_details.setSubItem("Fazer um novo pedido");
+    	item_details.setImagemItem(1);
+    	results.add(item_details);
+
+		item_details = new ListaMain();
+    	item_details.setItem("Clientes");
+    	item_details.setSubItem("Consultar ou cadastrar clientes");
+    	item_details.setImagemItem(2);
+    	results.add(item_details);
+
+		item_details = new ListaMain();
+    	item_details.setItem("Minhas vendas");
+    	item_details.setSubItem("Gerencie suas vendas");
+    	item_details.setImagemItem(3);
+    	results.add(item_details);
+
+		return results;
 	}
 
 }

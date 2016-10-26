@@ -29,6 +29,14 @@
 			android:name=".Sobre"
 			android:label="Sobre" />
 		
+		<activity
+			android:name=".Clientes"
+			android:label="Clientes" />
+		
+		<activity
+			android:name=".CadastrarCliente"
+			android:label="Cadastro de Clientes" />
+		
     </application>
 
 </manifest>
