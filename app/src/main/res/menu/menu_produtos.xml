@@ -1,8 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     
     <item
-        android:id="@+id/adicionarCliente"
-        android:title="Incluir cliente"
+        android:id="@+id/adicionarProduto"
+        android:title="Adicionar Produto"
 		android:icon="@android:drawable/ic_menu_add"
 		android:showAsAction="always" />
     

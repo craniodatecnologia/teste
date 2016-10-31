@@ -37,6 +37,22 @@
 			android:name=".CadastrarCliente"
 			android:label="Cadastro de Clientes" />
 		
+		<activity
+			android:name=".NovoPedido"
+			android:label="Novo Pedido" />
+		
+		<activity
+			android:name=".Produtos"
+			android:label="Produtos" />
+		
+		<activity
+			android:name=".CadastrarProduto"
+			android:label="Cadastro de Produtos" />
+		
+		<activity
+			android:name=".MinhasVendas"
+			android:label="Minhas Vendas" />
+		
     </application>
 
 </manifest>

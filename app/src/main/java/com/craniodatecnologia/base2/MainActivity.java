@@ -10,6 +10,8 @@ import android.text.*;
 import java.util.*;
 import android.widget.*;
 import android.widget.AdapterView.*;
+import com.craniodatecnologia.base2.models.*;
+import com.craniodatecnologia.base2.adapter.*;
 
 public class MainActivity extends Activity
 {
@@ -36,19 +38,25 @@ public class MainActivity extends Activity
 						switch (position)
 						{
 							case 0:
-								//Intent intent = new Intent(MainActivity.this, NovoPedido.class);
-								//startActivity(intent);
+								Intent intent0 = new Intent(MainActivity.this, NovoPedido.class);
+								startActivity(intent0);
 								break;
 
 							case 1:
-								Intent intent = new Intent(MainActivity.this, Clientes.class);
-								startActivity(intent);
+								Intent intent1 = new Intent(MainActivity.this, Clientes.class);
+								startActivity(intent1);
 								break;
 
 							case 2:
-								//Intent intent = new Intent(MainActivity.this, MinhasVendas.class);
-								//startActivity(intent);
+								Intent intent2 = new Intent(MainActivity.this, Produtos.class);
+								startActivity(intent2);
 								break;
+								
+							case 3:
+								Intent intent3 = new Intent(MainActivity.this, MinhasVendas.class);
+								startActivity(intent3);
+								break;
+								
 							default:
 						}
 					}
@@ -107,6 +115,12 @@ public class MainActivity extends Activity
     	item_details.setSubItem("Consultar ou cadastrar clientes");
     	item_details.setImagemItem(2);
     	results.add(item_details);
+		
+		item_details = new ListaMain();
+		item_details.setItem("Produtos");
+		item_details.setSubItem("Visualizar e gerenciar produtos");
+		item_details.setImagemItem(1);
+		results.add(item_details);
 
 		item_details = new ListaMain();
     	item_details.setItem("Minhas vendas");

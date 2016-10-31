@@ -2,67 +2,23 @@ package com.craniodatecnologia.base2;
 import android.app.*;
 import android.os.*;
 import android.view.*;
-import android.content.*;
-import android.widget.*;
-import com.craniodatecnologia.base2.repositorio.*;
-import com.craniodatecnologia.base2.models.*;
-import com.craniodatecnologia.base2.util.*;
 
-public class CadastrarCliente extends Activity
+public class CadastrarProduto extends Activity
 {
-
-	EditText razaoSocial, nomeFantasia, telefone, telefoneComercial,
-	celular, contato, email, cpf, rg, endereco, bairro, cep,
-	cidade, uf, observacoes;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.cadastrar_pessoa);
-
-		razaoSocial = (EditText) findViewById(R.id.nomeCliente);
-		
-		nomeFantasia = (EditText) findViewById(R.id.nomeFantasiaCliente);
-		
-		telefone = (EditText) findViewById(R.id.telefoneCliente);
-		telefone.addTextChangedListener(Mask.insert("(##)####-####", telefone));
-		
-		telefoneComercial = (EditText) findViewById(R.id.telefoneComercialCliente);
-		telefoneComercial.addTextChangedListener(Mask.insert("(##)####-####", telefoneComercial));
-		
-		celular = (EditText) findViewById(R.id.celularCliente);
-		celular.addTextChangedListener(Mask.insert("(##)####-####", celular));
-		
-		contato = (EditText) findViewById(R.id.contatoCliente);
-		
-		email = (EditText) findViewById(R.id.emailCliente);
-		
-		cpf = (EditText) findViewById(R.id.cpfCliente);
-		
-		rg = (EditText) findViewById(R.id.rgCliente);
-		
-		endereco = (EditText) findViewById(R.id.enderecoCliente);
-		
-		bairro = (EditText) findViewById(R.id.bairroCliente);
-		
-		cep = (EditText) findViewById(R.id.cepCliente);
-		cep.addTextChangedListener(Mask.insert("##.###-###", cep));
-		
-		cidade = (EditText) findViewById(R.id.cidadeCliente);
-		
-		uf = (EditText) findViewById(R.id.ufCliente);
-		
-		observacoes = (EditText) findViewById(R.id.observacoesCliente);
-
+		setContentView(R.layout.cadastrar_produto);
 	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.menu_cadastro, menu);
+		inflater.inflate(R.menu.menu_cadastro_produtos, menu);
 		return true;
 	}
 
@@ -72,8 +28,8 @@ public class CadastrarCliente extends Activity
 		switch (item.getItemId())
 		{
 
-			case R.id.salvarCliente:
-				menuSalvar();
+			case R.id.salvarProduto:
+				//menuSalvar();
 				return true;
 
 				/*
@@ -86,7 +42,7 @@ public class CadastrarCliente extends Activity
 				return super.onOptionsItemSelected(item);
 		}
 	}
-
+/*
 	public void menuSalvar()
 	{
 		if (razaoSocial.getText().toString().isEmpty())
@@ -126,4 +82,5 @@ public class CadastrarCliente extends Activity
 			finishAndRemoveTask();
 		}
 	}
+	*/
 }

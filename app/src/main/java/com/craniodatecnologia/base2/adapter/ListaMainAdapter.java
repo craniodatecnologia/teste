@@ -1,8 +1,10 @@
-package com.craniodatecnologia.base2;
+package com.craniodatecnologia.base2.adapter;
 import android.widget.*;
 import java.util.*;
 import android.view.*;
 import android.content.*;
+import com.craniodatecnologia.base2.models.*;
+import com.craniodatecnologia.base2.*;
 
 public class ListaMainAdapter extends BaseAdapter {
 	private static ArrayList<ListaMain> itemDetailsrrayList;

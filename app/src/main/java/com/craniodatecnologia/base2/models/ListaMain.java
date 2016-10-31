@@ -1,4 +1,4 @@
-package com.craniodatecnologia.base2;
+package com.craniodatecnologia.base2.models;
 
 public class ListaMain
 {

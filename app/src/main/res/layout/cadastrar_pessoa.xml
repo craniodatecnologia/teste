@@ -22,6 +22,7 @@
 			android:layout_width="match_parent"
 			android:hint="Código"
 			android:enabled="false"
+			android:focusable="false"
 			android:id="@+id/codigoCliente"/>
 
 		<TextView
@@ -47,54 +48,6 @@
 			android:inputType="textCapCharacters"
 			android:layout_width="match_parent"
 			android:id="@+id/nomeFantasiaCliente"/>
-
-		<TextView
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:text="Telefone"
-			android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-		<EditText
-			android:layout_height="wrap_content"
-			android:inputType="phone"
-			android:layout_width="match_parent"
-			android:id="@+id/telefoneCliente"/>
-
-		<TextView
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:text="Telefone Comercial"
-			android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-		<EditText
-			android:layout_height="wrap_content"
-			android:inputType="phone"
-			android:layout_width="match_parent"
-			android:id="@+id/telefoneComercialCliente"/>
-
-		<TextView
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:text="Celular"
-			android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-		<EditText
-			android:layout_height="wrap_content"
-			android:inputType="phone"
-			android:layout_width="match_parent"
-			android:id="@+id/celularCliente"/>
-
-		<TextView
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:text="E-mail"
-			android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-		<EditText
-			android:layout_height="wrap_content"
-			android:inputType="textEmailAddress"
-			android:layout_width="match_parent"
-			android:id="@+id/emailCliente"/>
 
 		<TextView
 			android:layout_height="wrap_content"
@@ -147,30 +100,6 @@
 		<TextView
 			android:layout_height="wrap_content"
 			android:layout_width="match_parent"
-			android:text="CEP"
-			android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-		<EditText
-			android:layout_height="wrap_content"
-			android:inputType="number"
-			android:layout_width="match_parent"
-			android:id="@+id/cepCliente"/>
-
-		<TextView
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:text="Código do IBGE"
-			android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-		<EditText
-			android:layout_height="wrap_content"
-			android:inputType="number"
-			android:layout_width="match_parent"
-			android:id="@+id/ibgeCliente"/>
-
-		<TextView
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
 			android:text="Cidade"
 			android:textAppearance="?android:attr/textAppearanceMedium"/>
 
@@ -191,6 +120,78 @@
 			android:inputType="textCapCharacters"
 			android:layout_width="match_parent"
 			android:id="@+id/ufCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="CEP"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="number"
+			android:layout_width="match_parent"
+			android:id="@+id/cepCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="Telefone"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="phone"
+			android:layout_width="match_parent"
+			android:id="@+id/telefoneCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="Telefone Comercial"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="phone"
+			android:layout_width="match_parent"
+			android:id="@+id/telefoneComercialCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="Celular"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="phone"
+			android:layout_width="match_parent"
+			android:id="@+id/celularCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:text="E-mail"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="textEmailAddress"
+			android:layout_width="match_parent"
+			android:id="@+id/emailCliente"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="match_parent"
+			android:text="Contato"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="textCapCharacters"
+			android:layout_width="match_parent"
+			android:id="@+id/contatoCliente"/>
 
 		<TextView
 			android:layout_height="wrap_content"
