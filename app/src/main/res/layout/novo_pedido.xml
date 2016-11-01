@@ -9,20 +9,148 @@
 		android:layout_height="wrap_content"
 		android:layout_width="match_parent"
 		android:orientation="horizontal"
+		android:gravity="center"
+		android:weightSum="2"
+		android:layout_margin="5dp">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="match_parent"
+			android:text="Pedido n°: "
+			android:layout_weight="1.0"
+			android:gravity="center"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="number"
+			android:enabled="false"
+			android:focusable="false"
+			android:hint="FINAL"
+			android:layout_width="match_parent"
+			android:layout_weight="1.0"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:gravity="center"
+		android:weightSum="2"
+		android:layout_margin="5dp">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="match_parent"
+			android:text="Data:"
+			android:layout_weight="1.0"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="date"
+			android:focusable="false"
+			android:layout_width="match_parent"
+			android:layout_weight="1.0"
+			android:id="@+id/dataPedido"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:gravity="center"
+		android:weightSum="2"
+		android:layout_margin="5dp">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="match_parent"
+			android:text="Cliente:"
+			android:layout_weight="1.0"/>
+
+		<Spinner
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:id="@+id/spinnerClientes"
+			android:layout_weight="1.0"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="vertical"
+		android:layout_weight="1.0"
+		android:layout_marginTop="10dp"
+		android:weightSum="2">
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="horizontal"
+			android:gravity="center"
+			android:weightSum="3">
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceLarge"
+				android:layout_width="match_parent"
+				android:text="Produtos"
+				android:layout_weight="2"
+				android:gravity="center"
+				android:layout_marginLeft="10dp"/>
+
+			<ImageButton
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:src="@android:drawable/ic_input_add"
+				android:layout_weight="1.0"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:id="@+id/buttonAdicionarProduto"/>
+
+		</LinearLayout>
+
+		<ListView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:id="@+id/produtosAdicionados"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:weightSum="3"
 		android:gravity="center">
 
 		<TextView
 			android:layout_height="wrap_content"
 			android:textAppearance="?android:attr/textAppearanceMedium"
 			android:layout_width="wrap_content"
-			android:text="Cliente:"
-			android:layout_margin="10dp"/>
+			android:text="Total: "
+			android:layout_weight="1.0"/>
 
-		<Spinner
+		<TextView
 			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:id="@+id/spinnerClientes"
-			android:layout_margin="10dp"/>
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="wrap_content"
+			android:text="Medium Text"
+			android:layout_weight="1.0"
+			android:id="@+id/totalPedido"
+			android:visibility="invisible"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="Fechar venda"
+			android:layout_weight="1.0"/>
 
 	</LinearLayout>
 

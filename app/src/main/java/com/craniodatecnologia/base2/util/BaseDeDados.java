@@ -8,7 +8,7 @@ public class BaseDeDados extends SQLiteOpenHelper
 {
 
 	private static final String NOME_BASE_DE_DADOS = "base.db";
-	private static final int VERSAO_BASE_DE_DADOS = 1;
+	private static final int VERSAO_BASE_DE_DADOS = 2;
 
 	public BaseDeDados(Context context) {
 		super(context, NOME_BASE_DE_DADOS, null, VERSAO_BASE_DE_DADOS);
@@ -17,8 +17,14 @@ public class BaseDeDados extends SQLiteOpenHelper
 	@Override
 	public void onCreate(SQLiteDatabase db)
 	{
+		criarTabelaClientes(db);
+		criarTabelaProdutos(db);
+		criarFormasDePagamento(db);
+	}
+
+	private void criarTabelaClientes(SQLiteDatabase db)
+	{
 		StringBuilder stringBuilderCreateTable = new StringBuilder();
-		StringBuilder tabelaProdutos = new StringBuilder();
 
 		stringBuilderCreateTable.append(" CREATE TABLE tb_clientes (");
 		stringBuilderCreateTable.append(" codigo INTEGER PRIMARY KEY AUTOINCREMENT, ");
@@ -37,47 +43,51 @@ public class BaseDeDados extends SQLiteOpenHelper
 		stringBuilderCreateTable.append(" cidade VARCHAR NOT NULL, ");
 		stringBuilderCreateTable.append(" uf VARCHAR NOT NULL, ");
 		stringBuilderCreateTable.append(" observacoes VARCHAR NOT NULL ) ");
-		
+
 		db.execSQL(stringBuilderCreateTable.toString());
-		
+
 		String ROW1 = "INSERT INTO tb_clientes " + " (codigo, razao_social, nome_fantasia, telefone, telefone_comercial, celular, contato, email, cpf, rg, endereco, bairro, cep, cidade, uf, observacoes)" 
-		+ " Values (NULL, 'CONSUMIDOR', '', '', '', '', '', '', '12345678900', '', '', '', '', 'Santo Antônio da Platina', 'PR', '')";
+			+ " Values (NULL, 'CONSUMIDOR', '', '', '', '', '', '', '12345678900', '', '', '', '', 'Santo Antônio da Platina', 'PR', '')";
 		db.execSQL(ROW1);
-		
-		String ROW2 = "INSERT INTO tb_clientes " + " (codigo, razao_social, nome_fantasia, telefone, telefone_comercial, celular, contato, email, cpf, rg, endereco, bairro, cep, cidade, uf, observacoes)" 
-			+ " Values (NULL, 'BRUNO ALEX DE OLIVEIRA', 'BRUNNO OLIVEIRA', '', '', '', '', '', '12345678900', '', '', '', '', 'Santo Antônio da Platina', 'PR', '')";
-		db.execSQL(ROW2);
-		
+
+	}
+
+	private void criarTabelaProdutos(SQLiteDatabase db)
+	{
+		StringBuilder tabelaProdutos = new StringBuilder();
+
 		tabelaProdutos.append(" CREATE TABLE tb_produtos (");
 		tabelaProdutos.append(" codigo INTEGER PRIMARY KEY AUTOINCREMENT, ");
-		tabelaProdutos.append(" razao_social VARCHAR NOT NULL, ");
-		tabelaProdutos.append(" nome_fantasia VARCHAR NOT NULL, ");
-		tabelaProdutos.append(" telefone VARCHAR NOT NULL, ");
-		tabelaProdutos.append(" telefone_comercial VARCHAR NOT NULL, ");
-		tabelaProdutos.append(" celular VARCHAR NOT NULL, ");
-		tabelaProdutos.append(" contato VARCHAR NOT NULL, ");
-		tabelaProdutos.append(" email VARCHAR NOT NULL, ");
-		tabelaProdutos.append(" cpf VARCHAR NOT NULL, ");
-		tabelaProdutos.append(" rg VARCHAR NOT NULL, ");
-		tabelaProdutos.append(" endereco VARCHAR NOT NULL, ");
-		tabelaProdutos.append(" bairro VARCHAR NOT NULL, ");
-		tabelaProdutos.append(" cep VARCHAR NOT NULL, ");
-		tabelaProdutos.append(" cidade VARCHAR NOT NULL, ");
-		tabelaProdutos.append(" uf VARCHAR NOT NULL, ");
+		tabelaProdutos.append(" referencia VARCHAR NOT NULL, ");
+		tabelaProdutos.append(" descricao VARCHAR NOT NULL, ");
+		tabelaProdutos.append(" tamanho VARCHAR NOT NULL, ");
+		tabelaProdutos.append(" ncm VARCHAR NOT NULL, ");
+		tabelaProdutos.append(" preco VARCHAR NOT NULL, ");
 		tabelaProdutos.append(" observacoes VARCHAR NOT NULL ) ");
-		
+
 		db.execSQL(tabelaProdutos.toString());
+
+		/*
+		String ROW2 = "INSERT INTO tb_produtos " + " (codigo, referencia, descricao, tamanho, ncm, preco, observacoes)" 
+			+ " Values (NULL, '1', 'Smartphone Samsung S4 Mini', 'Padrão', '00000000', '599,99', '')";
+		db.execSQL(ROW2);
+		*/
+	}
+	
+	public void criarFormasDePagamento(SQLiteDatabase db) {
 		
-		String ROW3 = "INSERT INTO tb_produtos " + " (codigo, razao_social, nome_fantasia, telefone, telefone_comercial, celular, contato, email, cpf, rg, endereco, bairro, cep, cidade, uf, observacoes)" 
-			+ " Values (NULL, 'CONSUMIDOR', '', '', '', '', '', '', '12345678900', '', '', '', '', 'Santo Antônio da Platina', 'PR', '')";
-		db.execSQL(ROW3);
-		
+		String str1 = "create tb_fpagtos (" + "codigo int primary key, ";
+		String str2 = str1 + "nome varchar,";
+		String str3 = str2 + "acrescimo varchar,";
+		String str4 = str3 + "desconto varchar";
+		db.execSQL(str4 + ")");
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
 	{
 		db.execSQL("DROP TABLE IF EXISTS tb_clientes");
+		db.execSQL("DROP TABLE IF EXISTS tb_produtos");
 		onCreate(db);
 	}
 

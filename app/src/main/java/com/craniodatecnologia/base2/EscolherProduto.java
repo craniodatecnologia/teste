@@ -1,20 +1,22 @@
 package com.craniodatecnologia.base2;
 import android.app.*;
-import android.os.*;
-import android.content.*;
-import android.view.*;
 import android.widget.*;
 import com.craniodatecnologia.base2.adapter.*;
+import android.os.*;
 import com.craniodatecnologia.base2.repositorio.*;
 import java.util.*;
 import com.craniodatecnologia.base2.models.*;
 import android.widget.AdapterView.*;
+import android.view.*;
+import android.content.*;
+import android.text.*;
 
-public class Produtos extends Activity
+
+public class EscolherProduto extends Activity
 {
 	
 	private ListView lv1;
-	ListaProdutosAdapter adapter;
+	EscolherProdutosAdapter adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -22,56 +24,49 @@ public class Produtos extends Activity
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.produtos);
-		
+
 		lv1 = (ListView) findViewById(R.id.listaProdutos);
-		
+
 		try
 		{
-			RepositorioProdutos repositorioProdutos =  new RepositorioProdutos(this);
+			RepositorioProdutosEscolhidos repositorioProdutos =  new RepositorioProdutosEscolhidos(this);
 
 			//BUSCA AS PESSOAS CADASTRADAS
-			List<ListaProdutos> produtos = repositorioProdutos.selecionarTodos();
+			List<EscolherProdutosModels> escolherProdutos = repositorioProdutos.selecionarTodos();
 
 			//SETA O ADAPTER DA LISTA COM OS REGISTROS RETORNADOS DA BASE
-			lv1.setAdapter(new ListaProdutosAdapter(this, produtos));
+			lv1.setAdapter(new EscolherProdutosAdapter(this, escolherProdutos));
 			lv1.setOnItemClickListener(new OnItemClickListener() {
 
 					@Override
 					public void onItemClick(AdapterView<?> parent, View view, int posicao, long id)
 					{
-						//Intent intent = new Intent(Clientes.this, AtualizarClientes.class);
-					}
-				});
-			lv1.setOnItemLongClickListener(new OnItemLongClickListener() {
-
-					@Override
-					public boolean onItemLongClick(AdapterView<?> parent, View view,final int pos,
-												   final long id) {
-
 						String produto = (String) ((TextView) view.findViewById(R.id.txtDescricaoProduto)).getText();
-						String preco = (String) ((TextView) view.findViewById(R.id.txtPrecoProdutos)).getText();
-
-						AlertDialog.Builder alert = new AlertDialog.Builder(Produtos.this);
-						alert.setTitle("Produto:");
-						alert.setMessage(produto + "\n" + "R$ " + preco);
-						alert.setPositiveButton("Editar", new DialogInterface.OnClickListener() {
+						
+						final EditText input0 = new EditText(EscolherProduto.this);
+						input0.setInputType(InputType.TYPE_CLASS_NUMBER);
+						input0.setText("1");
+						
+						AlertDialog.Builder dialog = new AlertDialog.Builder(EscolherProduto.this);
+						dialog.setTitle(produto);
+						dialog.setMessage("Informe a quantidade");
+						dialog.setView(input0);
+						dialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
 
 								@Override
 								public void onClick(DialogInterface p1, int p2)
 								{
-									// CODIGO PARA ALTERAR UM PRODUTO
+									// TODO: Implement this method
 								}
-							});
-						alert.setNegativeButton("Cancelar", null);
-						alert.setCancelable(false);
-						alert.show();
-						return false;
+						});
+						dialog.setNegativeButton("Cancelar", null);
+						dialog.show();
 					}
 				});
 		}
 		catch (Exception erro)
 		{
-			AlertDialog.Builder aviso = new AlertDialog.Builder(Produtos.this);
+			AlertDialog.Builder aviso = new AlertDialog.Builder(EscolherProduto.this);
 			aviso.setMessage("" + erro);
 			aviso.setPositiveButton("Ok", null);
 			aviso.show();
@@ -82,15 +77,15 @@ public class Produtos extends Activity
 	protected void onStart()
 	{
 		super.onStart();
-		RepositorioProdutos repositorioProdutos =  new RepositorioProdutos(this);
+		RepositorioProdutosEscolhidos repositorioProdutos =  new RepositorioProdutosEscolhidos(this);
 
 		//BUSCA AS PESSOAS CADASTRADAS
-		List<ListaProdutos> produtos = repositorioProdutos.selecionarTodos();
+		List<EscolherProdutosModels> produtos = repositorioProdutos.selecionarTodos();
 
 		//SETA O ADAPTER DA LISTA COM OS REGISTROS RETORNADOS DA BASE
-		lv1.setAdapter(new ListaProdutosAdapter(this, produtos));
+		lv1.setAdapter(new EscolherProdutosAdapter(this, produtos));
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
@@ -106,7 +101,7 @@ public class Produtos extends Activity
 		{
 
 			case R.id.adicionarProduto:
-				Intent adicionarProduto = new Intent(Produtos.this, CadastrarProduto.class);
+				Intent adicionarProduto = new Intent(EscolherProduto.this, CadastrarProduto.class);
 				startActivity(adicionarProduto);
 				return true;
 

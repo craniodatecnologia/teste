@@ -1,6 +1,6 @@
 package com.craniodatecnologia.base2.models;
 
-public class ListaProdutos
+public class EscolherProdutosModels
 {
 	
 	private int codigo;
@@ -10,10 +10,10 @@ public class ListaProdutos
 	private String ncm;
 	private String preco;
 	private String observacoes;
-	
-	public ListaProdutos()
+
+	public EscolherProdutosModels()
 	{}
-	
+
 	public void setCodigo(int codigo)
 	{
 		this.codigo = codigo;
@@ -23,11 +23,11 @@ public class ListaProdutos
 	{
 		return codigo;
 	}
-	
+
 	public String getReferencia() {
 		return referencia;
 	}
-	
+
 	public void setReferencia(String referencia) {
 		this.referencia = referencia;
 	}
@@ -47,11 +47,11 @@ public class ListaProdutos
 	public void setTamanho(String tamanho) {
 		this.tamanho = tamanho;
 	}
-	
+
 	public String getNcm() {
 		return ncm;
 	}
-	
+
 	public void setNcm(String ncm) {
 		this.ncm = ncm;
 	}
@@ -59,7 +59,7 @@ public class ListaProdutos
 	public String getPreco() {
 		return preco;
 	}
-	
+
 	public void setPreco(String preco) {
 		this.preco = preco;
 	}

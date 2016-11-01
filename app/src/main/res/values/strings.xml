@@ -17,5 +17,14 @@
 		<item>"es-ES"</item>
 		<item>"pt-BR"</item>
 	</string-array>
+	
+	<string-array name="Tamanhos">
+		<item>Padrão</item>
+		<item>P</item>
+		<item>M</item>
+		<item>G</item>
+		<item>GG</item>
+		<item>XG</item>
+	</string-array>
 
 </resources>

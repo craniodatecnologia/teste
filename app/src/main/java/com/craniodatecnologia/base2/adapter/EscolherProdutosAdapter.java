@@ -1,27 +1,27 @@
 package com.craniodatecnologia.base2.adapter;
 import android.widget.*;
 import android.view.*;
-import com.craniodatecnologia.base2.models.*;
 import java.util.*;
+import com.craniodatecnologia.base2.models.*;
 import com.craniodatecnologia.base2.repositorio.*;
 import com.craniodatecnologia.base2.*;
 import android.content.*;
 
-public class ListaProdutosAdapter extends BaseAdapter {
+public class EscolherProdutosAdapter extends BaseAdapter {
 	private static LayoutInflater layoutInflater = null;
 
-	List<ListaProdutos> listaProdutos = new ArrayList<ListaProdutos>();
+	List<EscolherProdutosModels> listaProdutos = new ArrayList<EscolherProdutosModels>();
 
-	RepositorioProdutos repositorioProdutos;
+	RepositorioProdutosEscolhidos repositorioProdutos;
 
-	private Produtos verProdutos;
+	private EscolherProduto verProdutos;
 
-	public ListaProdutosAdapter(Produtos verProdutos, List<ListaProdutos> listaProdutos) {
+	public EscolherProdutosAdapter(EscolherProduto verProdutos, List<EscolherProdutosModels> listaProdutos) {
 
 		this.listaProdutos = listaProdutos;
 		this.verProdutos = verProdutos;
 		this.layoutInflater = (LayoutInflater) this.verProdutos.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		this.repositorioProdutos = new RepositorioProdutos(verProdutos);
+		this.repositorioProdutos = new RepositorioProdutosEscolhidos(verProdutos);
 	}
 
 	@Override

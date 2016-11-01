@@ -2,9 +2,14 @@ package com.craniodatecnologia.base2;
 import android.app.*;
 import android.os.*;
 import android.view.*;
+import android.widget.*;
+import com.craniodatecnologia.base2.models.*;
+import com.craniodatecnologia.base2.repositorio.*;
 
 public class CadastrarProduto extends Activity
 {
+	
+	EditText referencia, descricao, tamanho, ncm, preco, observacoes;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -12,6 +17,19 @@ public class CadastrarProduto extends Activity
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.cadastrar_produto);
+		
+		referencia = (EditText) findViewById(R.id.referenciaProduto);
+		
+		descricao = (EditText) findViewById(R.id.descricaoProduto);
+		
+		tamanho = (EditText) findViewById(R.id.tamanhoProduto);
+		tamanho.setText("PADRÃO");
+		
+		ncm = (EditText) findViewById(R.id.ncmProduto);
+		
+		preco = (EditText) findViewById(R.id.precoProduto);
+		
+		observacoes = (EditText) findViewById(R.id.observacoesProduto);
 	}
 	
 	@Override
@@ -29,7 +47,7 @@ public class CadastrarProduto extends Activity
 		{
 
 			case R.id.salvarProduto:
-				//menuSalvar();
+				menuSalvar();
 				return true;
 
 				/*
@@ -42,45 +60,35 @@ public class CadastrarProduto extends Activity
 				return super.onOptionsItemSelected(item);
 		}
 	}
-/*
+	
 	public void menuSalvar()
 	{
-		if (razaoSocial.getText().toString().isEmpty())
+		if (descricao.getText().toString().isEmpty())
 		{
-			razaoSocial.setError("Campo obrigatório");
-			razaoSocial.requestFocus();
+			descricao.setError("Campo obrigatório");
+			descricao.requestFocus();
 		} 
-		else if (cpf.getText().length() < 11) {
-			cpf.setError("CPF/CNPJ inválido");
-			cpf.requestFocus();
+		else if (preco.getText().toString().isEmpty()) {
+			preco.setError("Campo obrigatório");
+			preco.requestFocus();
 		}
 		else
 		{
-			ListaClientes listaClientes = new ListaClientes();
-			listaClientes.setRazaoSocial(razaoSocial.getText().toString());
-			listaClientes.setNomeFantasia(nomeFantasia.getText().toString());
-			listaClientes.setTelefone(telefone.getText().toString());
-			listaClientes.setTelefoneComercial(telefoneComercial.getText().toString());
-			listaClientes.setCelular(celular.getText().toString());
-			listaClientes.setContato(contato.getText().toString());
-			listaClientes.setEmail(email.getText().toString());
-			listaClientes.setCpf(cpf.getText().toString());
-			listaClientes.setRg(rg.getText().toString());
-			listaClientes.setEndereco(endereco.getText().toString());
-			listaClientes.setBairro(bairro.getText().toString());
-			listaClientes.setCep(cep.getText().toString());
-			listaClientes.setCidade(cidade.getText().toString());
-			listaClientes.setUf(uf.getText().toString());
-			listaClientes.setObservacoes(observacoes.getText().toString());
+			ListaProdutos listaProdutos = new ListaProdutos();
+			listaProdutos.setReferencia(referencia.getText().toString());
+			listaProdutos.setDescricao(descricao.getText().toString());
+			listaProdutos.setTamanho(tamanho.getText().toString());
+			listaProdutos.setNcm(ncm.getText().toString());
+			listaProdutos.setPreco(preco.getText().toString());
+			listaProdutos.setObservacoes(observacoes.getText().toString());
+			
+			new RepositorioProdutos(CadastrarProduto.this).Salvar(listaProdutos);
 
-			new RepositorioClientes(CadastrarCliente.this).Salvar(listaClientes);
-
-			Toast toast = Toast.makeText(getApplicationContext(), "Cliente cadastrado com sucesso", Toast.LENGTH_LONG);
+			Toast toast = Toast.makeText(getApplicationContext(), "Produto cadastrado com sucesso", Toast.LENGTH_LONG);
 			toast.setGravity(Gravity.CENTER, 0, 0);
 			toast.show();
 
 			finishAndRemoveTask();
 		}
 	}
-	*/
 }

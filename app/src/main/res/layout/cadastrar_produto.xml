@@ -19,7 +19,10 @@
 			android:layout_height="wrap_content"
 			android:inputType="number"
 			android:layout_width="match_parent"
-			android:hint="FINAL"/>
+			android:hint="FINAL"
+			android:enabled="false"
+			android:focusable="false"
+			android:id="@+id/codigoProduto"/>
 
 		<TextView
 			android:layout_height="wrap_content"
@@ -30,7 +33,8 @@
 		<EditText
 			android:layout_height="wrap_content"
 			android:inputType="number"
-			android:layout_width="match_parent"/>
+			android:layout_width="match_parent"
+			android:id="@+id/referenciaProduto"/>
 
 		<TextView
 			android:layout_height="wrap_content"
@@ -40,7 +44,9 @@
 
 		<EditText
 			android:layout_height="wrap_content"
-			android:layout_width="match_parent"/>
+			android:layout_width="match_parent"
+			android:id="@+id/descricaoProduto"
+			android:inputType="textCapCharacters"/>
 
 		<TextView
 			android:layout_height="wrap_content"
@@ -48,9 +54,11 @@
 			android:layout_width="wrap_content"
 			android:text="Tamanho"/>
 
-		<Spinner
+		<EditText
 			android:layout_height="wrap_content"
-			android:layout_width="match_parent"/>
+			android:layout_width="match_parent"
+			android:id="@+id/tamanhoProduto"
+			android:inputType="textCapCharacters"/>
 
 		<TextView
 			android:layout_height="wrap_content"
@@ -61,7 +69,8 @@
 		<EditText
 			android:layout_height="wrap_content"
 			android:inputType="number"
-			android:layout_width="match_parent"/>
+			android:layout_width="match_parent"
+			android:id="@+id/ncmProduto"/>
 
 		<TextView
 			android:layout_height="wrap_content"
@@ -72,7 +81,8 @@
 		<EditText
 			android:layout_height="wrap_content"
 			android:inputType="numberDecimal"
-			android:layout_width="match_parent"/>
+			android:layout_width="match_parent"
+			android:id="@+id/precoProduto"/>
 
 		<TextView
 			android:layout_height="wrap_content"
@@ -83,7 +93,8 @@
 		<EditText
 			android:layout_height="wrap_content"
 			android:inputType="textMultiLine"
-			android:layout_width="match_parent"/>
+			android:layout_width="match_parent"
+			android:id="@+id/observacoesProduto"/>
 
 	</LinearLayout>
 

@@ -5,16 +5,16 @@ import com.craniodatecnologia.base2.models.*;
 import android.database.*;
 import java.util.*;
 
-public class RepositorioProdutos
+public class RepositorioProdutosEscolhidos
 {
 
 	BaseDeDados database;
 
-	public RepositorioProdutos(Context context) {
+	public RepositorioProdutosEscolhidos(Context context) {
 		database = new BaseDeDados(context);
 	}
 
-	public void Salvar(ListaProdutos listaProdutos) {
+	public void Salvar(EscolherProdutosModels listaProdutos) {
 		ContentValues contentValues = new ContentValues();
 		contentValues.put("referencia", listaProdutos.getReferencia());
 		contentValues.put("descricao", listaProdutos.getDescricao());
@@ -26,7 +26,7 @@ public class RepositorioProdutos
 		database.getConexaoDatabase().insert("tb_produtos", null, contentValues);
 	}
 
-	public void Atualizar(ListaProdutos listaProdutos) {
+	public void Atualizar(EscolherProdutosModels listaProdutos) {
 		ContentValues contentValues = new ContentValues();
 		contentValues.put("referencia", listaProdutos.getReferencia());
 		contentValues.put("descricao", listaProdutos.getDescricao());
@@ -42,12 +42,12 @@ public class RepositorioProdutos
 		return database.getConexaoDatabase().delete("tb_produtos", "codigo = ?", new String[] { Integer.toString(codigo) });
 	}
 
-	public ListaProdutos getCodigo(int codigo) {
+	public EscolherProdutosModels getCodigo(int codigo) {
 
 		Cursor cursor = database.getConexaoDatabase().rawQuery("SELECT * FROM tb_produtos WHERE codigo = " + codigo, null);
 		cursor.moveToFirst();
 
-		ListaProdutos listaProdutos = new ListaProdutos();
+		EscolherProdutosModels listaProdutos = new EscolherProdutosModels();
 		listaProdutos.setCodigo(cursor.getInt(cursor.getColumnIndex("codigo")));
 		listaProdutos.setDescricao(cursor.getString(cursor.getColumnIndex("descricao")));
 		listaProdutos.setPreco(cursor.getString(cursor.getColumnIndex("preco")));
@@ -55,8 +55,8 @@ public class RepositorioProdutos
 		return listaProdutos;
 	}
 
-	public List<ListaProdutos> selecionarTodos() {
-		List<ListaProdutos> produtos = new ArrayList<ListaProdutos>();
+	public List<EscolherProdutosModels> selecionarTodos() {
+		List<EscolherProdutosModels> produtos = new ArrayList<EscolherProdutosModels>();
 
 		StringBuilder stringBuilderQuery = new StringBuilder();
 		stringBuilderQuery.append(" SELECT codigo, ");
@@ -68,10 +68,10 @@ public class RepositorioProdutos
 		Cursor cursor = database.getConexaoDatabase().rawQuery(stringBuilderQuery.toString(), null);
 		cursor.moveToFirst();
 
-		ListaProdutos listaProdutos;
+		EscolherProdutosModels listaProdutos;
 
 		while (!cursor.isAfterLast()) {
-			listaProdutos = new ListaProdutos();
+			listaProdutos = new EscolherProdutosModels();
 
 			listaProdutos.setCodigo(cursor.getInt(cursor.getColumnIndex("codigo")));
 			listaProdutos.setDescricao(cursor.getString(cursor.getColumnIndex("descricao")));

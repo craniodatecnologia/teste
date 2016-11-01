@@ -50,6 +50,10 @@
 			android:label="Cadastro de Produtos" />
 		
 		<activity
+			android:name=".EscolherProduto"
+			android:label="Produtos" />
+		
+		<activity
 			android:name=".MinhasVendas"
 			android:label="Minhas Vendas" />
 		
