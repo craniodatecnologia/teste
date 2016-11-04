@@ -85,53 +85,101 @@
 			android:layout_width="match_parent"
 			android:id="@+id/enderecoCliente"/>
 
-		<TextView
+		<LinearLayout
+			android:orientation="horizontal"
 			android:layout_height="wrap_content"
 			android:layout_width="match_parent"
-			android:text="Bairro"
-			android:textAppearance="?android:attr/textAppearanceMedium"/>
+			android:weightSum="2">
 
-		<EditText
-			android:layout_height="wrap_content"
-			android:inputType="textCapCharacters"
-			android:layout_width="match_parent"
-			android:id="@+id/bairroCliente"/>
+			<LinearLayout
+				android:layout_weight="1.0"
+				android:orientation="vertical"
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent">
 
-		<TextView
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:text="Cidade"
-			android:textAppearance="?android:attr/textAppearanceMedium"/>
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:text="Bairro"
+					android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-		<EditText
-			android:layout_height="wrap_content"
-			android:inputType="textCapCharacters"
-			android:layout_width="match_parent"
-			android:id="@+id/cidadeCliente"/>
+				<EditText
+					android:layout_height="wrap_content"
+					android:inputType="textCapCharacters"
+					android:layout_width="match_parent"
+					android:id="@+id/bairroCliente"/>
 
-		<TextView
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:text="UF"
-			android:textAppearance="?android:attr/textAppearanceMedium"/>
+			</LinearLayout>
 
-		<EditText
-			android:layout_height="wrap_content"
-			android:inputType="textCapCharacters"
-			android:layout_width="match_parent"
-			android:id="@+id/ufCliente"/>
+			<LinearLayout
+				android:layout_weight="1.0"
+				android:orientation="vertical"
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent">
 
-		<TextView
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:text="CEP"
-			android:textAppearance="?android:attr/textAppearanceMedium"/>
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:text="CEP"
+					android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-		<EditText
+				<EditText
+					android:layout_height="wrap_content"
+					android:inputType="number"
+					android:layout_width="match_parent"
+					android:id="@+id/cepCliente"/>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:orientation="horizontal"
 			android:layout_height="wrap_content"
-			android:inputType="number"
 			android:layout_width="match_parent"
-			android:id="@+id/cepCliente"/>
+			android:weightSum="2">
+
+			<LinearLayout
+				android:layout_weight="1.0"
+				android:orientation="vertical"
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:text="Cidade"
+					android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+				<EditText
+					android:layout_height="wrap_content"
+					android:inputType="textCapCharacters"
+					android:layout_width="match_parent"
+					android:id="@+id/cidadeCliente"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_weight="1.0"
+				android:orientation="vertical"
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:text="UF"
+					android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+				<EditText
+					android:layout_height="wrap_content"
+					android:inputType="textCapCharacters"
+					android:layout_width="match_parent"
+					android:id="@+id/ufCliente"/>
+
+			</LinearLayout>
+
+		</LinearLayout>
 
 		<TextView
 			android:layout_height="wrap_content"

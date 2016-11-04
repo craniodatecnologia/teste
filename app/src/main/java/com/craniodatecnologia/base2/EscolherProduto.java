@@ -27,8 +27,6 @@ public class EscolherProduto extends Activity
 
 		lv1 = (ListView) findViewById(R.id.listaProdutos);
 
-		try
-		{
 			RepositorioProdutosEscolhidos repositorioProdutos =  new RepositorioProdutosEscolhidos(this);
 
 			//BUSCA AS PESSOAS CADASTRADAS
@@ -41,6 +39,7 @@ public class EscolherProduto extends Activity
 					@Override
 					public void onItemClick(AdapterView<?> parent, View view, int posicao, long id)
 					{
+						try {
 						String produto = (String) ((TextView) view.findViewById(R.id.txtDescricaoProduto)).getText();
 						
 						final EditText input0 = new EditText(EscolherProduto.this);
@@ -56,21 +55,35 @@ public class EscolherProduto extends Activity
 								@Override
 								public void onClick(DialogInterface p1, int p2)
 								{
-									// TODO: Implement this method
+									String item = (String) ((TextView) findViewById(R.id.txtDescricaoProduto)).getText();
+									
+									int quantidadeItem = Integer.parseInt(input0.getText().toString().trim());
+									int valorItem0 = 15;
+									double totalItens = valorItem0 * quantidadeItem;
+									
+									String real = String.format("%.2f", totalItens);
+
+									PedidoModel pedidoModel = new PedidoModel();
+									pedidoModel.setItem(item);
+									pedidoModel.setQuantidade(input0.getText().toString().trim());											
+									pedidoModel.setValor(String.valueOf(real));
+
+									new RepositorioPedido(EscolherProduto.this).salvar(pedidoModel);
+
+									finishAndRemoveTask();
 								}
 						});
 						dialog.setNegativeButton("Cancelar", null);
 						dialog.show();
-					}
+						} catch (Exception erro)
+						{
+							AlertDialog.Builder aviso = new AlertDialog.Builder(EscolherProduto.this);
+							aviso.setMessage("" + erro);
+							aviso.setPositiveButton("Ok", null);
+							aviso.show();
+						}};
 				});
-		}
-		catch (Exception erro)
-		{
-			AlertDialog.Builder aviso = new AlertDialog.Builder(EscolherProduto.this);
-			aviso.setMessage("" + erro);
-			aviso.setPositiveButton("Ok", null);
-			aviso.show();
-		}
+				
 	}
 
 	@Override

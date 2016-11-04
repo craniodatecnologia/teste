@@ -5,81 +5,22 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
-	<LinearLayout
+	<TextView
 		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:layout_width="match_parent"
-		android:orientation="horizontal"
-		android:gravity="center"
-		android:weightSum="2"
-		android:layout_margin="5dp">
+		android:text="Cliente"
+		android:layout_marginLeft="5dp"
+		android:layout_marginTop="5dp"/>
 
-		<TextView
-			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceMedium"
-			android:layout_width="match_parent"
-			android:text="Pedido n°: "
-			android:layout_weight="1.0"
-			android:gravity="center"/>
-
-		<EditText
-			android:layout_height="wrap_content"
-			android:inputType="number"
-			android:enabled="false"
-			android:focusable="false"
-			android:hint="FINAL"
-			android:layout_width="match_parent"
-			android:layout_weight="1.0"/>
-
-	</LinearLayout>
-
-	<LinearLayout
+	<EditText
 		android:layout_height="wrap_content"
+		android:inputType="none"
 		android:layout_width="match_parent"
-		android:orientation="horizontal"
-		android:gravity="center"
-		android:weightSum="2"
-		android:layout_margin="5dp">
-
-		<TextView
-			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceLarge"
-			android:layout_width="match_parent"
-			android:text="Data:"
-			android:layout_weight="1.0"/>
-
-		<EditText
-			android:layout_height="wrap_content"
-			android:inputType="date"
-			android:focusable="false"
-			android:layout_width="match_parent"
-			android:layout_weight="1.0"
-			android:id="@+id/dataPedido"
-			android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-	</LinearLayout>
-
-	<LinearLayout
-		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:orientation="horizontal"
-		android:gravity="center"
-		android:weightSum="2"
-		android:layout_margin="5dp">
-
-		<TextView
-			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceLarge"
-			android:layout_width="match_parent"
-			android:text="Cliente:"
-			android:layout_weight="1.0"/>
-
-		<Spinner
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:id="@+id/spinnerClientes"
-			android:layout_weight="1.0"/>
-
-	</LinearLayout>
+		android:layout_margin="5dp"
+		android:focusable="false"
+		android:hint="Nome do cliente escolhido acima"
+		android:id="@+id/ven_nome_cli"/>
 
 	<LinearLayout
 		android:layout_height="wrap_content"
@@ -116,10 +57,41 @@
 
 		</LinearLayout>
 
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="horizontal"
+			android:weightSum="3">
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Produto"
+				android:layout_weight="1.0"
+				android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Quantidade"
+				android:layout_weight="1.0"
+				android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Valor"
+				android:layout_weight="1.0"
+				android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+		</LinearLayout>
+
 		<ListView
 			android:layout_height="wrap_content"
 			android:layout_width="match_parent"
-			android:id="@+id/produtosAdicionados"/>
+			android:id="@+id/produtosAdicionados"
+			android:layout_marginTop="10dp"
+			android:layout_marginBottom="10dp"/>
 
 	</LinearLayout>
 
@@ -150,7 +122,9 @@
 			android:layout_height="wrap_content"
 			android:layout_width="wrap_content"
 			android:text="Fechar venda"
-			android:layout_weight="1.0"/>
+			android:layout_weight="1.0"
+			android:id="@+id/btFecharPedido"
+			android:shadowColor="#FF0F00"/>
 
 	</LinearLayout>
 

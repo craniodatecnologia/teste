@@ -1,52 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_height="wrap_content"
+	android:layout_height="match_parent"
 	android:layout_width="match_parent"
-	android:orientation="vertical"
-	android:padding="10dp">
+	android:orientation="horizontal"
+	android:gravity="center"
+	android:weightSum="3">
 
-	<LinearLayout
+	<TextView
 		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:orientation="horizontal">
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content"
+		android:text="Produto"
+		android:layout_weight="1.0"
+		android:id="@+id/itemVenda"
+		android:ems="3"
+		android:lines="1"/>
 
-		<TextView
-			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceLarge"
-			android:layout_width="wrap_content"
-			android:text="PRODUTO"
-			android:id="@+id/textViewItem"/>
-
-	</LinearLayout>
-
-	<LinearLayout
+	<TextView
 		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:orientation="horizontal"
-		android:gravity="center">
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content"
+		android:text="Quantidade"
+		android:layout_weight="1.0"
+		android:id="@+id/quantidadeVenda"
+		android:gravity="center"/>
 
-		<TextView
-			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceMedium"
-			android:layout_width="wrap_content"
-			android:text="QUANTIDADE: "/>
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content"
+		android:text="R$ "
+		android:layout_weight="0.5"
+		android:gravity="right"/>
 
-		<TextView
-			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceMedium"
-			android:layout_width="wrap_content"
-			android:text="Quantidade"
-			android:id="@+id/textViewQuantidade"/>
-
-		<TextView
-			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceLarge"
-			android:layout_width="match_parent"
-			android:text="VALOR"
-			android:gravity="right"/>
-
-	</LinearLayout>
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content"
+		android:text="Valor"
+		android:layout_weight="0.5"
+		android:id="@+id/valorVenda"/>
 
 </LinearLayout>
 

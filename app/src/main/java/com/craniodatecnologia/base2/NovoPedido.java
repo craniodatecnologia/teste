@@ -8,14 +8,24 @@ import com.craniodatecnologia.base2.util.*;
 import android.view.View.*;
 import java.text.*;
 import android.content.*;
+import com.craniodatecnologia.base2.repositorio.*;
+import com.craniodatecnologia.base2.models.*;
+import android.database.sqlite.*;
+import android.database.*;
+import android.widget.AdapterView.*;
 
 public class NovoPedido extends Activity
 {
-	
-	Spinner spinnerClientes;
+	// ITENS INSTANCIADOS
+	RepositorioPedido repositorioPedido;
+	EscolherProdutosModels pedidoModels;
+
 	ImageButton adicionarProduto;
-	EditText dataPedido;
-	Calendar myCalendar = Calendar.getInstance();
+	//Calendar myCalendar = Calendar.getInstance();
+	EditText ven_nome_cli;
+	ListView lv1;
+	Button fecharPedido;
+	TextView totalPedido;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -23,33 +33,55 @@ public class NovoPedido extends Activity
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.novo_pedido);
-		
-		spinnerClientes = (Spinner) findViewById(R.id.spinnerClientes);
-		dataPedido = (EditText) findViewById(R.id.dataPedido);
+
+		try {
+		// ITENS DA LAYOUT
+		//dataPedido = (EditText) findViewById(R.id.dataPedido);
 		adicionarProduto = (ImageButton) findViewById(R.id.buttonAdicionarProduto);
-		
-		final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+		lv1 = (ListView) findViewById(R.id.produtosAdicionados);
+		fecharPedido = (Button) findViewById(R.id.btFecharPedido);
+		totalPedido = (TextView) findViewById(R.id.totalPedido);
+		ven_nome_cli = (EditText) findViewById(R.id.ven_nome_cli);
 
-			@Override
-			public void onDateSet(DatePicker view, int ano, int mes, int dia)
-			{
-				myCalendar.set(Calendar.YEAR, ano);
-				myCalendar.set(Calendar.MONTH, mes);
-				myCalendar.set(Calendar.DAY_OF_MONTH, dia);
-				atualizaData();
-			}
-		};
-		
-		dataPedido.setOnClickListener(new OnClickListener() {
+		//MÉTODOS EXECUTADOS ON CREATE
+		//atualizaData();
+		carregarProdutosAdicionados();
+		atualizaTotalPedido();
 
-				@Override
-				public void onClick(View p1)
-				{
-					new DatePickerDialog(NovoPedido.this, date, myCalendar.get(Calendar.YEAR),
-					myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-				}
+
+		// FUNÇÕES DOA ITENS DAS LAYOUT
+//		final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+//
+//			@Override
+//			public void onDateSet(DatePicker view, int ano, int mes, int dia)
+//			{
+//				myCalendar.set(Calendar.YEAR, ano);
+//				myCalendar.set(Calendar.MONTH, mes);
+//				myCalendar.set(Calendar.DAY_OF_MONTH, dia);
+//				atualizaData();
+//			}
+//		};
+//
+//		dataPedido.setOnClickListener(new OnClickListener() {
+//
+//				@Override
+//				public void onClick(View p1)
+//				{
+//					new DatePickerDialog(NovoPedido.this, date, myCalendar.get(Calendar.YEAR),
+//										 myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+//				}
+//			});
+		
+			ven_nome_cli.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View p1)
+					{
+						Intent intent = new Intent(NovoPedido.this, Clientes.class);
+						startActivity(intent);
+					}
 		});
-		
+
 		adicionarProduto.setOnClickListener(new OnClickListener() {
 
 				@Override
@@ -58,51 +90,126 @@ public class NovoPedido extends Activity
 					Intent addProduto = new Intent(NovoPedido.this, EscolherProduto.class);
 					startActivity(addProduto);
 				}
-		});
+			});
+
+		fecharPedido.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View p1)
+				{
+
+				}
+			});
+
+		lv1.setOnItemLongClickListener(new OnItemLongClickListener() {
+			
+				@Override
+				public boolean onItemLongClick(AdapterView<?> p1, View p2, int p3, long p4)
+				{
+					try {
+					
+					AlertDialog.Builder excluir = new AlertDialog.Builder(NovoPedido.this);
+					excluir.setTitle("Aviso");
+					excluir.setMessage("Selecione uma opção");
+					excluir.setPositiveButton("Deletar", new DialogInterface.OnClickListener() {
+
+							@Override
+							public void onClick(DialogInterface p1, int p2)
+							{
+								//repositorioPedido.Excluir(pedidoModels.get(position).getCodigo());
+							}
+						});
+					excluir.setNegativeButton("Cancelar", null);
+					excluir.show();
+				} catch (Exception erro) {
+					AlertDialog.Builder aviso = new AlertDialog.Builder(NovoPedido.this);
+					aviso.setMessage("" + erro);
+					aviso.setPositiveButton("Ok", null);
+					aviso.show();
+				}
+					return false;
+				}});
 		
-		atualizaData();
-		loadSpinnerData();
+		} catch (Exception erro) {
+			Toast toast = Toast.makeText(NovoPedido.this, "" + erro, Toast.LENGTH_LONG);
+			toast.setGravity(Gravity.CENTER, 0, 0);
+			toast.show();
+			}
 		}
-		
-	private void loadSpinnerData() {
-        // database handler
-        BaseDeDados db = new BaseDeDados(getApplicationContext());
 
-        // Spinner Drop down elements
-        List<String> lables = db.getAllLabels();
+//	private void atualizaData()
+//	{
+//		String myFormat = "dd/MM/yyyy";
+//		SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+//
+//		dataPedido.setText(sdf.format(myCalendar.getTime()));
+//	}
 
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-																	android.R.layout.simple_spinner_item, lables);
+	private void carregarProdutosAdicionados()
+	{
+		try
+		{
+			RepositorioPedido pedidoRepository =  new RepositorioPedido(this);
 
-        // Drop down layout style - list view with radio button
-        dataAdapter
-			.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			//BUSCA AS PESSOAS CADASTRADAS
+			List<PedidoModel> pedidos = pedidoRepository.SelecionarTodos();
 
-        // attaching data adapter to spinner
-        spinnerClientes.setAdapter(dataAdapter);
-    }
+			//SETA O ADAPTER DA LISTA COM OS REGISTROS RETORNADOS DA BASE
+			lv1.setAdapter(new ConsultarProdutosAdicionadosAdapter(this, pedidos));
+		}
+		catch (Exception erro)
+		{
+			AlertDialog.Builder aviso = new AlertDialog.Builder(NovoPedido.this);
+			aviso.setMessage("" + erro);
+			aviso.setPositiveButton("Ok", null);
+			aviso.show();
+		}
 
-	public void onItemSelected(AdapterView<?> parent, View view, int position,
-							   long id) {
-        // On selecting a spinner item
-        String label = parent.getItemAtPosition(position).toString();
-
-        // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "You selected: " + label,
-					   Toast.LENGTH_LONG).show();
-
-    }
-
-    public void onNothingSelected(AdapterView<?> arg0) {
-        // TODO Auto-generated method stub
-
-    }
-	
-	private void atualizaData() {
-		String myFormat = "dd/MM/yyyy";
-		SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-		
-		dataPedido.setText(sdf.format(myCalendar.getTime()));
 	}
+
+	@Override
+	protected void onStart()
+	{
+		super.onStart();
+		try
+		{
+			carregarProdutosAdicionados();
+			atualizaTotalPedido();
+			//atualizaData();
+		} 
+		catch (Exception erro)
+		{
+			AlertDialog.Builder aviso = new AlertDialog.Builder(NovoPedido.this);
+			aviso.setMessage("" + erro);
+			aviso.setPositiveButton("Ok", null);
+			aviso.show();
+		}}
+
+	private void atualizaTotalPedido()
+	{
+		// abri o banco de dados
+		SQLiteDatabase db = openOrCreateDatabase("base.db",
+												 Context.MODE_PRIVATE, null);
+		Cursor c = db.rawQuery("SELECT sum(valor) FROM tb_pedido ", null);
+		if (c.moveToFirst())
+		{
+			do{
+				//Recuperando valores
+				Object[] o = new Object[1];
+				double total = c.getDouble(0);
+				
+				Double localDouble = new Double(total);
+				o[0] = localDouble;
+				String str = String.format("%.2f", o);
+
+				totalPedido.setText("R$ " + String.valueOf(str));
+				totalPedido.setVisibility(View.VISIBLE);
+			}
+			while(c.moveToNext());
+		}
+		c.close();
+		db.close();
+	}
+
 }
+		

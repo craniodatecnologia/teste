@@ -60,7 +60,7 @@ public class EscolherProdutosAdapter extends BaseAdapter {
 		//textViewCodigo.setText(String.valueOf(ListaClientess.get(position).getCodigo()));
 		textViewDescricao.setText(String.valueOf(listaProdutos.get(position).getDescricao()));
 		textViewPreco.setText(String.valueOf(listaProdutos.get(position).getPreco()));
-		//textViewValor.setText(String.valueOf(ListaClientess.get(position).getValor()));
+		//textViewValor.setText(String.valueOf(listaProdutos.get(position).getValor()));
 
 		return viewLinhaLista;
 	}

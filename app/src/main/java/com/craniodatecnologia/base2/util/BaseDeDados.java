@@ -3,12 +3,14 @@ import android.database.sqlite.*;
 import android.content.*;
 import java.util.*;
 import android.database.*;
+import android.app.*;
+import android.widget.*;
 
 public class BaseDeDados extends SQLiteOpenHelper
 {
 
 	private static final String NOME_BASE_DE_DADOS = "base.db";
-	private static final int VERSAO_BASE_DE_DADOS = 2;
+	private static final int VERSAO_BASE_DE_DADOS = 4;
 
 	public BaseDeDados(Context context) {
 		super(context, NOME_BASE_DE_DADOS, null, VERSAO_BASE_DE_DADOS);
@@ -19,8 +21,10 @@ public class BaseDeDados extends SQLiteOpenHelper
 	{
 		criarTabelaClientes(db);
 		criarTabelaProdutos(db);
-		criarFormasDePagamento(db);
+		criarTabelaPedido(db);
+		criarTabelaVenda(db);
 	}
+	
 
 	private void criarTabelaClientes(SQLiteDatabase db)
 	{
@@ -74,20 +78,41 @@ public class BaseDeDados extends SQLiteOpenHelper
 		*/
 	}
 	
-	public void criarFormasDePagamento(SQLiteDatabase db) {
+	private void criarTabelaPedido(SQLiteDatabase db) {
+		StringBuilder tabelaPedido = new StringBuilder();
 		
-		String str1 = "create tb_fpagtos (" + "codigo int primary key, ";
-		String str2 = str1 + "nome varchar,";
-		String str3 = str2 + "acrescimo varchar,";
-		String str4 = str3 + "desconto varchar";
-		db.execSQL(str4 + ")");
+		tabelaPedido.append("CREATE TABLE tb_pedido (");
+		tabelaPedido.append("codigo INTEGER PRIMARY KEY AUTOINCREMENT, ");
+		tabelaPedido.append("item VARCHAR NOT NULL, ");
+		tabelaPedido.append("quantidade INTEGER NOT NULL, ");
+		tabelaPedido.append("valor DOUBLE NOT NULL )");
+		
+		db.execSQL(tabelaPedido.toString());
 	}
-
+	
+	private void criarTabelaVenda(SQLiteDatabase db) {
+		
+		StringBuilder tabelaVenda = new StringBuilder();
+		
+		tabelaVenda.append("CREATE TABLE venda (");
+		tabelaVenda.append("id INTEGER PRIMARY KEY AUTOINCREMENT," );
+		tabelaVenda.append("ven_data DATE, ");
+		tabelaVenda.append("ven_hora TIME, ");
+		tabelaVenda.append("ven_nome_cli TEXT, ");
+		tabelaVenda.append("ven_endereco_cli TEXT, ");
+		tabelaVenda.append("ven_telefone_cli TEXT, ");
+		tabelaVenda.append("ven_valor_total DOUBLE)");
+		
+		db.execSQL(tabelaVenda.toString());
+	}
+	
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
 	{
 		db.execSQL("DROP TABLE IF EXISTS tb_clientes");
 		db.execSQL("DROP TABLE IF EXISTS tb_produtos");
+		db.execSQL("DROP TABLE IF EXISTS tb_pedido");
+		db.execSQL("DROP TABLE IF EXISTS venda");
 		onCreate(db);
 	}
 
@@ -99,7 +124,7 @@ public class BaseDeDados extends SQLiteOpenHelper
         List<String> labels = new ArrayList<String>();
 
         // Select All Query
-        String selectQuery = "SELECT  * FROM tb_clientes";
+        String selectQuery = "SELECT * FROM tb_clientes";
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
