@@ -13,6 +13,7 @@ import com.craniodatecnologia.base2.models.*;
 import android.database.sqlite.*;
 import android.database.*;
 import android.widget.AdapterView.*;
+import com.craniodatecnologia.base2.adapter.*;
 
 public class NovoPedido extends Activity
 {
@@ -34,22 +35,23 @@ public class NovoPedido extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.novo_pedido);
 
-		try {
-		// ITENS DA LAYOUT
-		//dataPedido = (EditText) findViewById(R.id.dataPedido);
-		adicionarProduto = (ImageButton) findViewById(R.id.buttonAdicionarProduto);
-		lv1 = (ListView) findViewById(R.id.produtosAdicionados);
-		fecharPedido = (Button) findViewById(R.id.btFecharPedido);
-		totalPedido = (TextView) findViewById(R.id.totalPedido);
-		ven_nome_cli = (EditText) findViewById(R.id.ven_nome_cli);
+		try
+		{
+			// ITENS DA LAYOUT
+			//dataPedido = (EditText) findViewById(R.id.dataPedido);
+			adicionarProduto = (ImageButton) findViewById(R.id.buttonAdicionarProduto);
+			lv1 = (ListView) findViewById(R.id.produtosAdicionados);
+			fecharPedido = (Button) findViewById(R.id.btFecharPedido);
+			totalPedido = (TextView) findViewById(R.id.totalPedido);
+			ven_nome_cli = (EditText) findViewById(R.id.ven_nome_cli);
 
-		//MÉTODOS EXECUTADOS ON CREATE
-		//atualizaData();
-		carregarProdutosAdicionados();
-		atualizaTotalPedido();
+			//MÉTODOS EXECUTADOS ON CREATE
+			//atualizaData();
+			carregarProdutosAdicionados();
+			atualizaTotalPedido();
 
 
-		// FUNÇÕES DOA ITENS DAS LAYOUT
+			// FUNÇÕES DOA ITENS DAS LAYOUT
 //		final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 //
 //			@Override
@@ -71,7 +73,7 @@ public class NovoPedido extends Activity
 //										 myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
 //				}
 //			});
-		
+
 			ven_nome_cli.setOnClickListener(new OnClickListener() {
 
 					@Override
@@ -80,62 +82,67 @@ public class NovoPedido extends Activity
 						Intent intent = new Intent(NovoPedido.this, Clientes.class);
 						startActivity(intent);
 					}
-		});
+				});
 
-		adicionarProduto.setOnClickListener(new OnClickListener() {
+			adicionarProduto.setOnClickListener(new OnClickListener() {
 
-				@Override
-				public void onClick(View v)
-				{
-					Intent addProduto = new Intent(NovoPedido.this, EscolherProduto.class);
-					startActivity(addProduto);
-				}
-			});
+					@Override
+					public void onClick(View v)
+					{
+						Intent addProduto = new Intent(NovoPedido.this, EscolherProduto.class);
+						startActivity(addProduto);
+					}
+				});
 
-		fecharPedido.setOnClickListener(new OnClickListener() {
+			fecharPedido.setOnClickListener(new OnClickListener() {
 
-				@Override
-				public void onClick(View p1)
-				{
+					@Override
+					public void onClick(View p1)
+					{
 
-				}
-			});
+					}
+				});
 
-		lv1.setOnItemLongClickListener(new OnItemLongClickListener() {
-			
-				@Override
-				public boolean onItemLongClick(AdapterView<?> p1, View p2, int p3, long p4)
-				{
-					try {
-					
-					AlertDialog.Builder excluir = new AlertDialog.Builder(NovoPedido.this);
-					excluir.setTitle("Aviso");
-					excluir.setMessage("Selecione uma opção");
-					excluir.setPositiveButton("Deletar", new DialogInterface.OnClickListener() {
+			lv1.setOnItemLongClickListener(new OnItemLongClickListener() {
 
-							@Override
-							public void onClick(DialogInterface p1, int p2)
-							{
-								//repositorioPedido.Excluir(pedidoModels.get(position).getCodigo());
-							}
-						});
-					excluir.setNegativeButton("Cancelar", null);
-					excluir.show();
-				} catch (Exception erro) {
-					AlertDialog.Builder aviso = new AlertDialog.Builder(NovoPedido.this);
-					aviso.setMessage("" + erro);
-					aviso.setPositiveButton("Ok", null);
-					aviso.show();
-				}
-					return false;
-				}});
-		
-		} catch (Exception erro) {
+					@Override
+					public boolean onItemLongClick(AdapterView<?> p1, View p2, int p3, long p4)
+					{
+						try
+						{
+
+							AlertDialog.Builder excluir = new AlertDialog.Builder(NovoPedido.this);
+							excluir.setTitle("Aviso");
+							excluir.setMessage("Selecione uma opção");
+							excluir.setPositiveButton("Deletar", new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface p1, int p2)
+									{
+										//repositorioPedido.Excluir(pedidoModels.get(position).getCodigo());
+									}
+								});
+							excluir.setNegativeButton("Cancelar", null);
+							excluir.show();
+						}
+						catch (Exception erro)
+						{
+							AlertDialog.Builder aviso = new AlertDialog.Builder(NovoPedido.this);
+							aviso.setMessage("" + erro);
+							aviso.setPositiveButton("Ok", null);
+							aviso.show();
+						}
+						return false;
+					}});
+
+		}
+		catch (Exception erro)
+		{
 			Toast toast = Toast.makeText(NovoPedido.this, "" + erro, Toast.LENGTH_LONG);
 			toast.setGravity(Gravity.CENTER, 0, 0);
 			toast.show();
-			}
 		}
+	}
 
 //	private void atualizaData()
 //	{
@@ -197,7 +204,7 @@ public class NovoPedido extends Activity
 				//Recuperando valores
 				Object[] o = new Object[1];
 				double total = c.getDouble(0);
-				
+
 				Double localDouble = new Double(total);
 				o[0] = localDouble;
 				String str = String.format("%.2f", o);

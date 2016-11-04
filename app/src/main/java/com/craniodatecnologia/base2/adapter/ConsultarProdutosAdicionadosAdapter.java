@@ -1,4 +1,4 @@
-package com.craniodatecnologia.base2.util;
+package com.craniodatecnologia.base2.adapter;
 import android.widget.*;
 import android.view.*;
 import java.util.*;

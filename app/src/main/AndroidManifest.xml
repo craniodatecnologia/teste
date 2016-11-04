@@ -38,6 +38,10 @@
 			android:label="Cadastro de Clientes" />
 		
 		<activity
+			android:name=".EscolherCliente"
+			android:label="Clientes" />
+		
+		<activity
 			android:name=".NovoPedido"
 			android:label="Novo Pedido" />
 		

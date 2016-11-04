@@ -95,7 +95,7 @@ public class BaseDeDados extends SQLiteOpenHelper
 		StringBuilder tabelaVenda = new StringBuilder();
 		
 		tabelaVenda.append("CREATE TABLE venda (");
-		tabelaVenda.append("id INTEGER PRIMARY KEY AUTOINCREMENT," );
+		tabelaVenda.append("ven_codigo INTEGER PRIMARY KEY AUTOINCREMENT," );
 		tabelaVenda.append("ven_data DATE, ");
 		tabelaVenda.append("ven_hora TIME, ");
 		tabelaVenda.append("ven_nome_cli TEXT, ");
