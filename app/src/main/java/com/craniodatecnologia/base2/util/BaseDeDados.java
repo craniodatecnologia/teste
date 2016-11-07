@@ -10,7 +10,7 @@ public class BaseDeDados extends SQLiteOpenHelper
 {
 
 	private static final String NOME_BASE_DE_DADOS = "base.db";
-	private static final int VERSAO_BASE_DE_DADOS = 4;
+	private static final int VERSAO_BASE_DE_DADOS = 5;
 
 	public BaseDeDados(Context context) {
 		super(context, NOME_BASE_DE_DADOS, null, VERSAO_BASE_DE_DADOS);
@@ -23,6 +23,7 @@ public class BaseDeDados extends SQLiteOpenHelper
 		criarTabelaProdutos(db);
 		criarTabelaPedido(db);
 		criarTabelaVenda(db);
+		criarTabelaItensVenda(db);
 	}
 	
 
@@ -95,15 +96,33 @@ public class BaseDeDados extends SQLiteOpenHelper
 		StringBuilder tabelaVenda = new StringBuilder();
 		
 		tabelaVenda.append("CREATE TABLE venda (");
-		tabelaVenda.append("ven_codigo INTEGER PRIMARY KEY AUTOINCREMENT," );
+		tabelaVenda.append("id INTEGER PRIMARY KEY AUTOINCREMENT," );
 		tabelaVenda.append("ven_data DATE, ");
 		tabelaVenda.append("ven_hora TIME, ");
+		tabelaVenda.append("ven_cliente INTEGER, ");
 		tabelaVenda.append("ven_nome_cli TEXT, ");
 		tabelaVenda.append("ven_endereco_cli TEXT, ");
 		tabelaVenda.append("ven_telefone_cli TEXT, ");
 		tabelaVenda.append("ven_valor_total DOUBLE)");
 		
 		db.execSQL(tabelaVenda.toString());
+	}
+	
+	private void criarTabelaItensVenda(SQLiteDatabase db) {
+		
+		StringBuilder itensVenda = new StringBuilder();
+		
+		itensVenda.append("CREATE TABLE venda_itens (");
+		itensVenda.append("id INTEGER PRIMARY KEY AUTOINCREMENT, ");
+		itensVenda.append("ive_id_venda INTEGER, ");
+		itensVenda.append("ive_registro_item INTEGER, ");
+		itensVenda.append("ive_produto INTEGER, ");
+		itensVenda.append("ive_quantidade INTEGER, ");
+		itensVenda.append("ive_valor_unitario DOUBLE, ");
+		itensVenda.append("ive_valor_total DOUBLE, ");
+		itensVenda.append("FOREIGN KEY(ive_id_venda) REFERENCES venda(id));");
+		
+		db.execSQL(itensVenda.toString());
 	}
 	
 	@Override
